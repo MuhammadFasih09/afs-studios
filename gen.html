@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFS IMG GEN // AI Image Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gen.css">
+</head>
+<body id="app-body">
+    <div class="glow-bg"></div>
+
+    <!-- NAVBAR WITH CYBERPUNK SETTINGS BUTTON -->
+    <nav class="navbar">
+        <div class="logo">AFS <span>IMG GEN</span></div>
+        <div class="nav-right">
+            <a href="set.html" class="nav-settings-btn">⚙️ SETTINGS</a>
+        </div>
+    </nav>
+
+    <!-- MAIN STUDIO CONTAINER -->
+    <main class="studio-container">
+        
+        <!-- PROMPT & CONTROLS SECTION -->
+        <section class="prompt-section">
+            <div class="input-card">
+                <label for="prompt-input" class="card-label">ENTER PROMPT</label>
+                <textarea 
+                    id="prompt-input" 
+                    placeholder="Describe the image you want to generate in detail..." 
+                    rows="4"
+                ></textarea>
+
+                <div class="controls-wrapper">
+                    <!-- ASPECT RATIO SELECTOR -->
+                    <div class="aspect-ratio-group">
+                        <label class="card-label">ASPECT RATIO</label>
+                        <div class="ratio-options">
+                            <button class="ratio-btn active" data-ratio="1:1" onclick="selectRatio('1:1', this)">1:1</button>
+                            <button class="ratio-btn" data-ratio="16:9" onclick="selectRatio('16:9', this)">16:9</button>
+                            <button class="ratio-btn" data-ratio="9:16" onclick="selectRatio('9:16', this)">9:16</button>
+                            <button class="ratio-btn" data-ratio="4:3" onclick="selectRatio('4:3', this)">4:3</button>
+                        </div>
+                    </div>
+
+                    <!-- GENERATE BUTTON -->
+                    <button id="generate-btn" class="cyber-btn main-gen-btn" onclick="generateImage()">
+                        <span>✨ GENERATE IMAGE</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISPLAY & OUTPUT SECTION -->
+        <section class="output-section">
+            <div class="output-card">
+                <div id="image-container" class="image-display-area">
+                    <div class="placeholder-content">
+                        <div class="cyber-icon">🎨</div>
+                        <p>Your AI generated artwork will appear here</p>
+                    </div>
+                </div>
+
+                <!-- ACTION BUTTONS -->
+                <div id="output-actions" class="output-actions hidden">
+                    <button class="action-btn" onclick="downloadImage()">📥 DOWNLOAD</button>
+                    <button class="action-btn" onclick="copyImageLink()">🔗 COPY LINK</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="gen.js"></script>
+</body>
+  </html>
