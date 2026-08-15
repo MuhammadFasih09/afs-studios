@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFS IMG GEN // Settings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="set.css">
+</head>
+<body id="app-body">
+    <div class="glow-bg"></div>
+
+    <nav class="navbar">
+        <div class="logo">AFS <span>IMG GEN</span></div>
+        <div class="nav-right">
+            <a href="gen.html" class="cyber-back-btn">⬅️ BACK TO STUDIO</a>
+        </div>
+    </nav>
+
+    <main class="settings-container">
+        <div class="settings-header">
+            <h2>SETTINGS</h2>
+        </div>
+
+        <div class="accordion-group">
+
+            <!-- 1. USER PROFILE & CREDENTIALS -->
+            <div class="setting-accordion">
+                <button class="accordion-btn" onclick="toggleAccordion('profile-panel')">
+                    <span>👤 USER ACCOUNT CREDENTIALS</span>
+                    <span class="chevron">▼</span>
+                </button>
+                <div id="profile-panel" class="accordion-panel hidden">
+                    <form id="profile-form" onsubmit="saveProfile(event)">
+                        <div class="input-group">
+                            <label>USERNAME</label>
+                            <input type="text" id="set-username" required>
+                        </div>
+                        <div class="input-group">
+                            <label>EMAIL</label>
+                            <input type="email" id="set-email" required>
+                        </div>
+                        <div class="input-group">
+                            <label>NEW PASSWORD</label>
+                            <input type="password" id="set-pass" placeholder="Enter new password">
+                        </div>
+                        <button type="submit" class="cyber-btn">SAVE CHANGES</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 2. THEME SELECTION -->
+            <div class="setting-accordion">
+                <button class="accordion-btn" onclick="toggleAccordion('theme-panel')">
+                    <span>🎨 SYSTEM THEME SELECTOR</span>
+                    <span class="chevron">▼</span>
+                </button>
+                <div id="theme-panel" class="accordion-panel hidden">
+                    <p class="panel-desc">Select visual environment mode:</p>
+                    <div class="theme-options">
+                        <button class="theme-btn active" data-theme="dark" onclick="setTheme('dark', this)">🌙 DARK MODE</button>
+                        <button class="theme-btn" data-theme="light" onclick="setTheme('light', this)">☀️ LIGHT MODE</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. RENDER QUALITY SELECTION (HD, 2K, 4K) -->
+            <div class="setting-accordion">
+                <button class="accordion-btn" onclick="toggleAccordion('quality-panel')">
+                    <span>⚡ NEURAL RENDER QUALITY</span>
+                    <span class="chevron">▼</span>
+                </button>
+                <div id="quality-panel" class="accordion-panel hidden">
+                    <p class="panel-desc">Choose output rendering resolution:</p>
+                    <div class="quality-options">
+                        <button class="quality-btn active" data-quality="hd" onclick="setQuality('hd', this)">
+                            <strong>HD QUALITY (1080p)</strong>
+                            <span>Standard resolution generation</span>
+                        </button>
+                        <button class="quality-btn" data-quality="2k" onclick="setQuality('2k', this)">
+                            <strong>2K RESOLUTION (1440p)</strong>
+                            <span>High detail • Enhanced sharpness</span>
+                        </button>
+                        <button class="quality-btn" data-quality="4k" onclick="setQuality('4k', this)">
+                            <strong>4K ULTRA HD (2160p)</strong>
+                            <span>Maximum clarity & AI upscaling</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. HISTORY -->
+            <div class="setting-accordion">
+                <button class="accordion-btn" onclick="toggleAccordion('history-panel')">
+                    <span>📜 HISTORY</span>
+                    <span class="chevron">▼</span>
+                </button>
+                <div id="history-panel" class="accordion-panel hidden">
+                    <div class="card-header-flex">
+                        <p class="panel-desc">Your generation logs:</p>
+                        <button class="danger-btn" onclick="clearHistory()">CLEAR HISTORY</button>
+                    </div>
+                    <div id="settings-history-grid" class="settings-history-grid">
+                        <!-- Dynamic History Cards -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTTOM LOGOUT BUTTON -->
+            <div class="settings-logout-wrapper">
+                <button class="logout-full-btn" onclick="logout()">LOGOUT ACCOUNT</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="set.js"></script>
+</body>
+</html>
